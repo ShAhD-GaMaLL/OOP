@@ -24,10 +24,36 @@ void shahdVector<T>::expandCapacity()
         capacity = newCapacity;
     */
 }
+template <typename T>
 shahdVector<T>::shahdVector(int size = 0) : size(size)
 {
     if (size < 0)
         size = 1;
     capacity = size + 10;
     vector = new T[capacity]{};
+}
+
+template <typename T>
+shahdVector<T>::shahdVector(int size = 0) : size(size)
+{
+    if (size < 0)
+        size = 1;
+    capacity = size + 10;
+    vector = new T[capacity]{};
+}
+
+template <typename T>
+shahdVector<T>::~shahdVector()
+{
+    delete[] vector;
+    vector = nullptr;
+}
+
+template <typename T>
+void shahdVector<T>::pushBack(const T &value)
+{
+    if (size == capacity)
+        expandCapacity();
+
+    vector[size++] = value;
 }

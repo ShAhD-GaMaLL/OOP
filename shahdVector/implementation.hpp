@@ -13,19 +13,11 @@ private:
     void expandCapacity();
 
 public:
-    shahdVector(int size = 0) : size(size)
-    {
-        if (size < 0)
-            size = 1;
-        capacity = size + 10;
-        vector = new T[capacity]{};
-    }
+    shahdVector(int size = 0) : size(size);
 
-    ~shahdVector()
-    {
-        delete[] vector;
-        vector = nullptr;
-    }
+    ~shahdVector();
+
+    void pushBack(const T &value);
 };
 
 #include "implementation.cpp"
