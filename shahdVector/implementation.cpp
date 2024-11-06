@@ -47,6 +47,18 @@ shahdVector<T>::~shahdVector()
 }
 
 template <typename T>
+int shahdVector<T>::getSize() const
+{
+    return size;
+}
+
+template <typename T>
+int shahdVector<T>::getCapacity() const
+{
+    return capacity;
+}
+
+template <typename T>
 void shahdVector<T>::pushBack(const T &value)
 {
     if (size == capacity)
@@ -80,5 +92,12 @@ ostream &operator<<(ostream &out, const shahdVector<f> &v) // const as we don't 
 
     for (int i = 0; i < v.size; i++)
         out << v.vector[i] << " ";
+    out << endl;
     return out;
+}
+
+template <typename T>
+int &shahdVector<T>::operator[](T num)
+{
+    return vector[num];
 }
